@@ -1,0 +1,86 @@
+.logoHead {
+    width: 58px;
+    height: 72.773px;
+    display: inline-block;
+    flex-shrink: 0;
+    margin-left: 80px;
+}
+
+.socialMedia {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+header {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 159px;
+
+    p {
+        font-family: 'FactorA-Regular';
+        font-size: 36px;
+        line-height: normal;
+        color: #0B0B0B;
+
+        text-align: right;
+        margin: 0%;
+    }
+}
+
+.toolbar {
+    display: inline-flex;
+    align-items: center;
+    gap: 130px;
+    margin-right: 80px;
+}
+
+.discuss {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+
+    #lightning-blue {
+        display: none;
+    }
+
+    &:hover {
+        p {
+            color: #1758FF;
+        }
+
+        #lightning {
+            display: none;
+        }
+
+        #lightning-blue {
+            display: inline;
+        }
+    }
+}
+
+.menu {
+    display: flex;
+    gap: 11px;
+
+    color: #141414;
+}
+
+.create-line {
+    width: 45px;
+    position: relative;
+    display: inline-block;
+
+    &::before {
+        content: "";
+        background: #1758FF;
+        width: 45px;
+        height: 2px;
+        top: 20px;
+        position: absolute;
+    }
+}
