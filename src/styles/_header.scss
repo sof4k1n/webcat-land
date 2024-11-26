@@ -1,3 +1,5 @@
+@use 'variables' as *;
+
 .logoHead {
     width: 58px;
     height: 72.773px;
@@ -10,6 +12,27 @@
     display: flex;
     align-items: center;
     gap: 28px;
+
+    #tg-hover,
+    #insta-hover {
+        display: none;
+    }
+
+    svg:hover {
+        #tg-hover {
+            display: inline;
+        }
+        #tg {
+            display: none;
+        }
+
+        #insta-hover {
+            display: inline;
+        }
+        #insta {
+            display: none;
+        }
+    }
 }
 
 header {
@@ -18,16 +41,6 @@ header {
     align-items: center;
     justify-content: space-between;
     height: 159px;
-
-    p {
-        font-family: 'FactorA-Regular';
-        font-size: 36px;
-        line-height: normal;
-        color: #0B0B0B;
-
-        text-align: right;
-        margin: 0%;
-    }
 }
 
 .toolbar {
@@ -44,20 +57,20 @@ header {
     gap: 6px;
     cursor: pointer;
 
-    #lightning-blue {
+    #lightning-hover {
         display: none;
     }
 
     &:hover {
         p {
-            color: #1758FF;
+            color: $cat-blue;
         }
 
         #lightning {
             display: none;
         }
 
-        #lightning-blue {
+        #lightning-hover {
             display: inline;
         }
     }
@@ -66,8 +79,6 @@ header {
 .menu {
     display: flex;
     gap: 11px;
-
-    color: #141414;
 }
 
 .create-line {
@@ -77,7 +88,7 @@ header {
 
     &::before {
         content: "";
-        background: #1758FF;
+        background: $cat-blue;
         width: 45px;
         height: 2px;
         top: 20px;
