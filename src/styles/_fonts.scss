@@ -1,3 +1,5 @@
+@use 'variables' as *;
+
 @font-face {
     font-family: 'FactorA-Regular';
     src: url('/src/fonts/FactorA-Regular.otf') format('opentype');
@@ -6,20 +8,34 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'JxTabeDemoRegular';
+    src: url('/src/fonts/JxTabeDemoRegular.ttf') format('truetype');
 
+    font-weight: normal;
+    font-style: normal;
+}
 
-header {
-    p {
-        font-family: 'FactorA-Regular';
-        font-size: 36px;
-        color: #0B0B0B;
-        text-align: right;
-        margin: 0%;
+header p {
+    font-family: 'FactorA-Regular';
+    font-size: 36px;
+    color: #0B0B0B;
+    text-align: right;
+    margin: 0%;
+}
+
+.menu p{
+    color: $main-black;
+}
+
+#menu.open {
+    .toolbar p, .discuss p {
+    color: $warm-white;
     }
 }
 
-.menu {
-    p {
-        color: #141414;
-    }
+nav a {
+    color: $warm-white;
+    font-family: 'JxTabeDemoRegular';
+    font-size: 72px;
 }

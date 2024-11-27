@@ -6,6 +6,7 @@
     display: inline-block;
     flex-shrink: 0;
     margin-left: 80px;
+    margin-top: 53px;
 }
 
 .socialMedia {
@@ -19,6 +20,8 @@
     }
 
     svg:hover {
+        cursor: pointer;
+
         #tg-hover {
             display: inline;
         }
@@ -35,12 +38,25 @@
     }
 }
 
-header {
+.flexheader {
+    width: 100%;
+    height: auto;
     flex-shrink: 0;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: flex-start;
+}
+
+header {
     height: 159px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $warm-white;
+
+    #logo-white, nav {
+        display: none;
+    }
 }
 
 .toolbar {
@@ -48,6 +64,7 @@ header {
     align-items: center;
     gap: 130px;
     margin-right: 80px;
+    margin-top: 61px;
 }
 
 .discuss {
@@ -57,7 +74,7 @@ header {
     gap: 6px;
     cursor: pointer;
 
-    #lightning-hover {
+    #lightning-blue {
         display: none;
     }
 
@@ -70,7 +87,7 @@ header {
             display: none;
         }
 
-        #lightning-hover {
+        #lightning-blue {
             display: inline;
         }
     }
@@ -79,12 +96,23 @@ header {
 .menu {
     display: flex;
     gap: 11px;
+    cursor: pointer;
+
+    border: none;
+    padding: 0%;
+    background-color: $warm-white;
+
+    &:hover {
+        p {
+            color: $cat-blue;
+        }
+    }
 }
 
 .create-line {
     width: 45px;
     position: relative;
-    display: inline-block;
+    display: inline-flex;
 
     &::before {
         content: "";
@@ -93,5 +121,94 @@ header {
         height: 2px;
         top: 20px;
         position: absolute;
+    }
+}
+
+.menu-exit {
+    border: none;
+    background-color: $cat-blue;
+    display: none;
+
+    padding: 0%;
+}
+
+#menu.open {
+    height: 810px;
+    width: 100%;
+    position: absolute;
+
+    .toolbar {
+        gap: 152px;
+    }
+
+    border-radius: 0px 0px 40px 40px;
+    background: $cat-blue;
+
+    .socialMedia,
+    .menu,
+    #logo  {
+        display: none;
+    }
+
+    #lightning {
+        fill: $warm-white;
+    }
+
+    .discuss:hover {
+        p {
+            color: $main-black;
+        }
+
+        #lightning-blue {
+            display: inline;
+            fill: $main-black;
+        }
+    }
+
+    #logo-white,
+    .menu-exit {
+        display: inline;
+    }
+
+    .menu-exit {
+        #exit-black {
+            display: none;
+        }
+
+        &:hover {
+            cursor: pointer;
+
+            #exit {
+                display: none;
+            }
+
+            #exit-black {
+                display: inline;
+            }
+        }
+    }
+
+    nav {
+        height: auto;
+        display: inline-flex;
+        margin-top: 78.5px;
+
+        ul { 
+            display: flex;
+            flex-direction: column;
+            gap: 52px;
+            list-style: none; 
+            margin: 0%;
+            padding: 0%;
+        }
+
+        li {
+            display: flex;
+            justify-content: center;
+        }
+
+        a {
+            text-decoration: none;
+        }
     }
 }
