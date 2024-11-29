@@ -192,6 +192,7 @@ header {
         height: auto;
         display: inline-flex;
         margin-top: 78.5px;
+        overflow: visible;
 
         ul { 
             display: flex;
@@ -211,4 +212,58 @@ header {
             text-decoration: none;
         }
     }
+<<<<<<< Updated upstream
+=======
+
+    .link-menu {
+        position: relative;
+        text-decoration: none;
+        transition: color 0.3s;
+        cursor: none;
+
+        &.active::before,
+        &.active::after {
+            visibility: visible;
+        }
+    }
+
+    .link-menu::after {
+        content: attr(data-text); /* Дублируем текст */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: $white; /* Белый цвет для текста под кружком */
+        clip-path: circle(0% at 0% 0%); /* Начальное положение круга – невидимо */
+        z-index: 4;
+        visibility: hidden;
+        text-shadow: 1px 1px 1px $cat-blue;
+    }
+
+    .link-menu::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 150%;
+        height: 250%;
+        transform: translate(-50%, -50%);
+        background-color: $main-black;
+        clip-path: circle(0% at 0% 0%); /* Начальное положение круга – невидимо */
+        z-index: 3;
+        visibility: hidden;
+    }
+
+    .link-menu:hover {
+        color: $main-black;
+        text-shadow: 0px -1px 1px $white;
+        &::before {
+            clip-path: circle(55px at var(--cursor-x) var(--cursor-y));
+        }
+        &::after {
+            clip-path: circle(55px at var(--cursor-x1) var(--cursor-y1));
+        }
+    }
+>>>>>>> Stashed changes
 }
