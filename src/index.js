@@ -1,18 +1,5 @@
 import './styles/main.scss';
 
-<<<<<<< Updated upstream
-const menu_btn = document.querySelector('#menu-open');
-const menu = document.querySelector('#menu');
-const menu_exit = document.querySelector('#menu-exit');
-
-menu_btn.addEventListener('click', () => {
-    menu.classList.add('open');
-});
-
-menu_exit.addEventListener('click', () => {
-    menu.classList.remove('open');
-});
-=======
 document.addEventListener("DOMContentLoaded", () => {
     const mediaQuery = window.matchMedia("(min-width: 1200px)");
 
@@ -90,4 +77,3 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
->>>>>>> Stashed changes
