@@ -6,31 +6,56 @@ document.addEventListener("DOMContentLoaded", () => {
     if (mediaQuery.matches) {
         initCursorEffect();
         menuInner();
+        application();
     }
 
     mediaQuery.addEventListener("change", (e) => {
         if (e.matches) {
             initCursorEffect();
             menuInner();
-        }
-        else {
+            application();
+        } else {
             console.log("Разрешение меньше 1200 пикселей")
         }
     });
 
-    function menuInner() {
-        const menu_btn = document.querySelector('#menu-open');
-        const menu = document.querySelector('#menu');
-        const menu_exit = document.querySelector('#menu-exit');
+    function application() {
+        const discuss_btn = document.querySelector('#discuss_btn');
+        const discuss_overlay = document.querySelector('.discuss_overlay');
+        const discuss_exit = document.querySelector('#discuss_exit');
 
-        menu_btn.addEventListener('click', () => {
-            menu.classList.add('open');
+        discuss_btn.addEventListener("click", () => {
+            if (menu.classList.contains('menu_opened')) {
+                menu_btn.dispatchEvent(new Event('click'));
+                discuss_overlay.style.setProperty('display', 'flex');
+            } else {
+                discuss_overlay.style.setProperty('display', 'flex');
+            }
         });
 
-        menu_exit.addEventListener('click', () => {
-            menu.classList.remove('open');
+        discuss_exit.addEventListener("click", () => {
+            discuss_overlay.style.setProperty('display', 'none');
+        });
+
+    }   
+
+    function menuInner() {
+        const menu_btn = document.querySelector('#menu_btn');
+        const menu = document.querySelector('#menu');
+
+        menu_btn.addEventListener("click", () => {  
+            if (menu_btn.classList.contains('menu_btn')) {
+                menu_btn.classList.remove('menu_btn');
+                menu_btn.classList.add('menu_exit');
+            } else {
+                menu_btn.classList.add('menu_btn');
+                menu_btn.classList.remove('menu_exit');
+            }
+
+            menu.classList.toggle('menu_opened')
         });
     }
+
     function initCursorEffect() {
         const links = document.querySelectorAll(".link-menu");
 

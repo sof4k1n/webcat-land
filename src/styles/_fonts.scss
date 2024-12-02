@@ -16,6 +16,14 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'FactorA-Medium';
+    src: url('/src/fonts/FactorA-Medium.otf') format('opentype');
+
+    font-weight: normal;
+    font-style: normal;
+}
+
 header p {
     font-family: 'FactorA-Regular';
     font-size: 36px;
@@ -28,7 +36,7 @@ header p {
     color: $main-black;
 }
 
-#menu.open {
+#menu.menu_opened {
     .toolbar p, .discuss p {
     color: $warm-white;
     }
@@ -38,4 +46,62 @@ nav a {
     color: $warm-white;
     font-family: 'JxTabeDemoRegular';
     font-size: 72px;
+}
+
+.discuss_opened {
+    h2 {
+        font-family: 'FactorA-Medium';
+        font-size: 16px;
+        color: $black;
+        font-weight: normal;
+    }
+
+    span {
+        font-family: 'FactorA-Regular';
+        font-size: 16px;
+        color: $mouse-gray;
+        font-weight: normal;
+    }
+    span a {
+        font-family: 'FactorA-Medium';
+        font-size: 16px;
+        color: $mouse-gray;
+        font-weight: normal;
+    }
+
+    input::placeholder {
+        font-family: 'FactorA-Medium';
+        font-size: 34px;
+        color: $asphalt-grey;
+    }
+
+    input {
+        font-family: 'FactorA-Regular';
+        color: #0B0B0B;
+        font-size: 34px;
+    }
+}
+
+.discuss_head {
+    h2 {
+        font-family: 'FactorA-Medium';
+        font-size: 34px;
+        color: $black;
+        font-weight: normal;
+    }
+}
+
+.upload_file {
+    p {
+        font-family: 'FactorA-Medium';
+        font-size: 34px;
+        color: $asphalt-grey;
+    }
+}
+
+.upload_btn {
+    color: $white;
+
+    font-family: 'FactorA-Medium';
+    font-size: 34px;
 }

@@ -1,0 +1,120 @@
+@use 'variables' as *;
+
+.discuss_overlay{
+    display: none;
+    position: absolute;
+    flex-direction: row-reverse;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.30);
+}
+
+.discuss_wrapper_inside {
+    margin: 35px 80px 35px 47px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.discuss_opened {
+    background-color: $warm-white;
+    width: 882px;
+    height: 97%;
+    margin: 0%;
+
+    border-radius: 40px 0px 0px 40px;
+    background-color: $warm-white;
+
+    label h2 {
+        margin: 0 0 10px 0;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.margin_indent {
+    margin: 25px 0 25px 0;
+}
+
+
+.discuss_opened label {
+    display: flex;
+    flex-direction: column
+}
+
+.discuss_opened input {
+    border: 0;
+    border-bottom: 1px solid $black;
+
+    height: 46px;
+    width: 755px;
+}
+
+.discuss_head {
+    display: flex;
+    width: 755px;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 0 17px 0;
+
+    h2 {
+        text-align: left;
+        margin: 0%;
+    }
+
+    button {
+        background-color: transparent;
+        border: none;
+
+        &:hover {
+            cursor: pointer;
+            #discuss_svg {
+                fill: $cat-blue;
+            }
+        }
+    }
+}
+
+.discuss_foot {
+    width: 755px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // margin: 6px 0 0 0;
+    margin: 0%;
+}
+
+.upload_file {
+    h2 {
+        margin: 0 0 10px 0;
+    }
+
+    label {
+        width: 755px;
+        height: 46px;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: space-between;
+        justify-content: flex-end;
+
+        border: 0;
+        border-bottom: 1px solid $black;
+    }
+}
+
+.upload_btn {
+    color: $white;
+    background-color: $cat-blue;
+
+    border-radius: 10px;
+    border: none;
+    padding: 11px 18px;
+}
+

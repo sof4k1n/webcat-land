@@ -1,12 +1,12 @@
 @use 'variables' as *;
+@use 'application';
 
 .logoHead {
     width: 58px;
     height: 72.773px;
     display: inline-block;
     flex-shrink: 0;
-    margin-left: 80px;
-    margin-top: 53px;
+    margin: 53px 0 0 80px;
 }
 
 .socialMedia {
@@ -14,26 +14,14 @@
     align-items: center;
     gap: 28px;
 
-    #tg-hover,
-    #insta-hover {
-        display: none;
-    }
-
-    svg:hover {
-        cursor: pointer;
-
-        #tg-hover {
-            display: inline;
-        }
+    #media_1:hover {
         #tg {
-            display: none;
+            fill: $cat-blue;
         }
-
-        #insta-hover {
-            display: inline;
-        }
+    }
+    #media_2:hover {
         #insta {
-            display: none;
+            fill: $cat-blue;
         }
     }
 }
@@ -63,16 +51,18 @@ header {
     display: inline-flex;
     align-items: center;
     gap: 130px;
-    margin-right: 80px;
-    margin-top: 61px;
+    margin: 61px 80px 0 0;
 }
 
-.discuss {
+.discuss_btn {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 6px;
     cursor: pointer;
+
+    border: none;
+    background-color: transparent;
 
     #lightning-blue {
         display: none;
@@ -93,14 +83,18 @@ header {
     }
 }
 
-.menu {
+.menu_btn {
     display: flex;
     gap: 11px;
     cursor: pointer;
 
     border: none;
     padding: 0%;
-    background-color: $warm-white;
+    background-color: transparent;
+
+    svg {
+        display: none;
+    }
 
     &:hover {
         p {
@@ -124,15 +118,25 @@ header {
     }
 }
 
-.menu-exit {
+.menu_exit {
     border: none;
-    background-color: $cat-blue;
-    display: none;
+    background-color: transparent;
 
-    padding: 0%;
+    div, p {
+        display: none;
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        #menu_exit {
+            fill: $main-black;
+        }
+    }
 }
 
-#menu.open {
+
+#menu.menu_opened {
     height: 810px;
     width: 100%;
     position: absolute;
@@ -144,54 +148,47 @@ header {
     border-radius: 0px 0px 40px 40px;
     background: $cat-blue;
 
-    .socialMedia,
-    .menu,
     #logo  {
         display: none;
+    }
+
+    #tg, #insta {
+        fill: $warm-white;
+    }
+
+    #media_1:hover {
+        #tg {
+            fill: $main-black;
+        }
+    }
+    #media_2:hover {
+        #insta {
+            fill: $main-black;
+        }
     }
 
     #lightning {
         fill: $warm-white;
     }
 
-    .discuss:hover {
-        p {
-            color: $main-black;
-        }
-
+    .discuss_btn:hover {
         #lightning-blue {
             display: inline;
-            fill: $main-black;
+            fill: $warm-white;
         }
-    }
-
-    #logo-white,
-    .menu-exit {
-        display: inline;
-    }
-
-    .menu-exit {
-        #exit-black {
+        #lightning {
             display: none;
         }
-
-        &:hover {
-            cursor: pointer;
-
-            #exit {
-                display: none;
-            }
-
-            #exit-black {
-                display: inline;
-            }
-        }
     }
+
+    #logo-white {
+        display: inline;
+    }    
 
     nav {
         height: auto;
         display: inline-flex;
-        margin-top: 78.5px;
+        margin: 78.5px 0 0 0;
         overflow: visible;
 
         ul { 
