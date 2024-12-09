@@ -26,7 +26,7 @@
 
 header p {
     font-family: 'FactorA-Regular';
-    font-size: 36px;
+    font-size: 1.875vw;
     color: #0B0B0B;
     text-align: right;
     margin: 0%;
@@ -45,47 +45,45 @@ header p {
 nav a {
     color: $warm-white;
     font-family: 'JxTabeDemoRegular';
-    font-size: 72px;
+    font-size: 3.75vw;
 }
 
 .discuss_opened {
     h2 {
         font-family: 'FactorA-Medium';
-        font-size: 16px;
+        font-size: 1.4814vh;
         color: $black;
         font-weight: normal;
     }
 
     span {
         font-family: 'FactorA-Regular';
-        font-size: 16px;
+        font-size: 1.4814vh;
         color: $mouse-gray;
         font-weight: normal;
     }
     span a {
         font-family: 'FactorA-Medium';
-        font-size: 16px;
+        font-size: 1.4814vh;
         color: $mouse-gray;
         font-weight: normal;
     }
 
     input::placeholder {
         font-family: 'FactorA-Medium';
-        font-size: 34px;
-        color: $asphalt-grey;
+        font-size: 3.3333vh;
     }
 
     input {
         font-family: 'FactorA-Regular';
-        color: #0B0B0B;
-        font-size: 34px;
+        font-size: 3.3333vh;
     }
 }
 
 .discuss_head {
     h2 {
         font-family: 'FactorA-Medium';
-        font-size: 34px;
+        font-size: 3.3333vh;
         color: $black;
         font-weight: normal;
     }
@@ -94,7 +92,7 @@ nav a {
 .upload_file {
     p {
         font-family: 'FactorA-Medium';
-        font-size: 34px;
+        font-size: 3.3333vh;
         color: $asphalt-grey;
     }
 }
@@ -103,5 +101,5 @@ nav a {
     color: $white;
 
     font-family: 'FactorA-Medium';
-    font-size: 34px;
+    font-size: 3.3333vh;
 }

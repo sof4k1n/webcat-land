@@ -33,6 +33,13 @@ module.exports = {
         }
       },
       {
+        test: /\.(usdz|glb)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'models/[name][ext]'
+        }
+      },
+      {
         test: /\.(ttf|woff2|woff|otf)$/i,
         type: 'asset/resource',
         generator: {

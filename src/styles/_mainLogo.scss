@@ -1,0 +1,113 @@
+@use 'variables' as *;
+
+.logo_wrapper {
+    position: relative;
+}
+
+.logo_main {
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    margin: 5.555vh 0 0 0;
+
+    svg {
+        overflow: visible;
+        display: block;
+        z-index: 3;
+    }
+}
+
+#logo_for_anim {
+    width: 92vw;
+    height: 77vh;
+}
+
+.group_for_anim {
+    position: relative;
+
+    #top_u {
+        transform: translate(31.89%, 61.1%);
+        visibility: hidden;
+        transition: transform 1.5s ease;
+    }
+
+    #bottom_u {
+        transform: translate(31.89%, 93.75%);
+        visibility: hidden;
+        transition: transform 1.5s ease;
+    }
+
+    #top_e, #midle_e {
+        position: absolute;
+        transform: translate(16%, 0%);
+        visibility: hidden;
+        transition: transform 1.5s ease;
+    }
+
+    #bottom_e {
+        position: absolute;
+        transform: translate(16%, 32.7%);
+        visibility: hidden;
+        transition: transform 1.5s ease;
+    }
+
+    #right_c {
+        transform: translate(55.55%, 0%);
+        visibility: hidden;
+    }
+
+    #left_c {
+        transform: translate(53.2%, 0%);
+        visibility: hidden;
+        transition: transform 1.5s ease;
+    }
+}
+
+.logo_animed {
+    #origin_e, #origin_c, #origin_u {
+        visibility: hidden;
+    }
+
+    #top_e {
+        position: absolute;
+        transform: translate(16%, -5%);
+        visibility: visible;
+    }
+
+    #midle_e {
+        visibility: visible;
+    }
+
+    #bottom_e {
+        position: absolute;
+        transform: translate(16%, 38%);
+        visibility: visible;
+    }
+
+    #left_c {
+        position: absolute;
+        transform: translate(50.9%, 0%);
+        visibility: visible;
+    }
+
+    #right_c, #top_u {
+        visibility: visible;
+    }
+
+    #bottom_u {
+        transform: translate(31.89%, 99.8%);
+        visibility: visible;
+    }
+}
+
+.anim_hand {
+    display: inline-block;
+    z-index: -1;
+    height: 60vh;
+    width: 35vw;
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

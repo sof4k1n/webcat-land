@@ -24,10 +24,17 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(png|svg|jpg|jpeg)$/i,
         type: 'asset/resource',
         generator: {
           filename: 'images/[name][ext]'
+        }
+      },
+      {
+        test: /\.(usdz|glb)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'models/[name][ext]'
         }
       },
       {

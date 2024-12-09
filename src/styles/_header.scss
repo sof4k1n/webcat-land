@@ -1,33 +1,62 @@
 @use 'variables' as *;
 @use 'application';
 
+.heder_wrapper {
+    background: rgba(0, 0, 0, 0.30);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+}
+
 .logoHead {
-    width: 58px;
-    height: 72.773px;
+    width: 3.02vw;
+    height: 6,738vh;
     display: inline-block;
     flex-shrink: 0;
-    margin: 53px 0 0 80px;
+    margin: 4.9vh 0 0 4.166vw;
 }
 
 .socialMedia {
     display: flex;
     align-items: center;
-    gap: 28px;
+    gap: 1.458vw;
 
-    #media_1:hover {
-        #tg {
-            fill: $cat-blue;
+
+
+    #media_1 {
+        width: 1.979vw;
+        height: 3.518vh;
+
+
+        &:hover {
+            #insta {
+                fill: $cat-blue;
+            }
+            cursor: pointer;
         }
     }
-    #media_2:hover {
-        #insta {
-            fill: $cat-blue;
+    #media_2 {
+        width: 1.979vw;
+        height: 3.24vh;
+
+    
+        &:hover {
+            #tg {
+                fill: $cat-blue;
+            }
+            cursor: pointer;
         }
     }
 }
 
 .flexheader {
-    width: 100%;
+    width: 100vw;
     height: auto;
     flex-shrink: 0;
     display: flex;
@@ -36,7 +65,7 @@
 }
 
 header {
-    height: 159px;
+    height: 14.72vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -50,19 +79,26 @@ header {
 .toolbar {
     display: inline-flex;
     align-items: center;
-    gap: 130px;
-    margin: 61px 80px 0 0;
+    height: 5.183vh;
+    gap: 6.770vw;
+    margin: 5.648vh 4.166vw 0 0;
 }
 
 .discuss_btn {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 6px;
+    gap: 0.3125vw;
     cursor: pointer;
+    padding: 0%;
 
     border: none;
     background-color: transparent;
+
+    svg {
+        height: 5.185vh;
+        width: 1.666vw;
+    }
 
     #lightning-blue {
         display: none;
@@ -85,7 +121,7 @@ header {
 
 .menu_btn {
     display: flex;
-    gap: 11px;
+    gap: 0.573vw;
     cursor: pointer;
 
     border: none;
@@ -104,16 +140,16 @@ header {
 }
 
 .create-line {
-    width: 45px;
+    width: 2.34375vw;
     position: relative;
     display: inline-flex;
 
     &::before {
         content: "";
         background: $cat-blue;
-        width: 45px;
-        height: 2px;
-        top: 20px;
+        width: 2.34375vw;
+        height: 0.1041vw;
+        top: 1.041vw;
         position: absolute;
     }
 }
@@ -121,6 +157,13 @@ header {
 .menu_exit {
     border: none;
     background-color: transparent;
+    padding: 0%;
+    margin: 0 0 0 calc(var(--margin_exit) - 3.541vw + 0.573vw);
+
+    svg {
+        width: 3.541vw;
+        height: 6.296vh;
+    }
 
     div, p {
         display: none;
@@ -137,34 +180,20 @@ header {
 
 
 #menu.menu_opened {
-    height: 810px;
-    width: 100%;
+    height: 80vh;
+    width: 100vw;
     position: absolute;
+    z-index: 2;
 
-    .toolbar {
-        gap: 152px;
-    }
-
-    border-radius: 0px 0px 40px 40px;
+    border-radius: 0px 0px 2.0833vw 2.0833vw;
     background: $cat-blue;
 
     #logo  {
         display: none;
     }
 
-    #tg, #insta {
-        fill: $warm-white;
-    }
-
-    #media_1:hover {
-        #tg {
-            fill: $main-black;
-        }
-    }
-    #media_2:hover {
-        #insta {
-            fill: $main-black;
-        }
+    .socialMedia {
+        display: none;
     }
 
     #lightning {
@@ -186,15 +215,15 @@ header {
     }    
 
     nav {
-        height: auto;
+        height: 45.555vh;
         display: inline-flex;
-        margin: 78.5px 0 0 0;
+        margin: 7.268vh 0 0 0;
         overflow: visible;
 
         ul { 
             display: flex;
             flex-direction: column;
-            gap: 52px;
+            gap: 4.814vh;
             list-style: none; 
             margin: 0%;
             padding: 0%;
@@ -254,10 +283,10 @@ header {
         color: $main-black;
         text-shadow: 0px -1px 1px $white;
         &::before {
-            clip-path: circle(55px at var(--cursor-x) var(--cursor-y));
+            clip-path: circle(2.8645vw at var(--cursor-x) var(--cursor-y));
         }
         &::after {
-            clip-path: circle(55px at var(--cursor-x1) var(--cursor-y1));
+            clip-path: circle(2.8645vw at var(--cursor-x1) var(--cursor-y1));
         }
     }
 }
