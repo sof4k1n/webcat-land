@@ -15,11 +15,14 @@
 }
 
 .logoHead {
-    width: 3.02vw;
-    height: 6,738vh;
     display: inline-block;
     flex-shrink: 0;
     margin: 4.9vh 0 0 4.166vw;
+
+    svg {
+        width: 3.02vw;
+        height: 6.738vh;
+    }
 }
 
 .socialMedia {
@@ -56,7 +59,7 @@
 }
 
 .flexheader {
-    width: 100vw;
+    width: 100%;
     height: auto;
     flex-shrink: 0;
     display: flex;
@@ -181,7 +184,7 @@ header {
 
 #menu.menu_opened {
     height: 80vh;
-    width: 100vw;
+    width: 100%;
     position: absolute;
     z-index: 2;
 

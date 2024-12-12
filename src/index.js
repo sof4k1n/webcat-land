@@ -20,6 +20,12 @@ document.addEventListener("DOMContentLoaded", () => {
         application();
         logo_anim()
         anim_hand()
+    } else {
+        initCursorEffect();
+        menuInner();
+        application();
+        logo_anim()
+        anim_hand()
     }
 
     mediaQuery.addEventListener("change", (e) => {
@@ -30,6 +36,10 @@ document.addEventListener("DOMContentLoaded", () => {
             logo_anim()
         } else {
             console.log("Разрешение меньше 1200 пикселей")
+            initCursorEffect();
+            menuInner();
+            application();
+            logo_anim()
         }
     });
 

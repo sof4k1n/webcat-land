@@ -24,6 +24,14 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'FactorA-Bold';
+    src: url('/src/fonts/FactorA-Bold.otf') format('opentype');
+
+    font-weight: normal;
+    font-style: normal;
+}
+
 header p {
     font-family: 'FactorA-Regular';
     font-size: 1.875vw;
@@ -102,4 +110,48 @@ nav a {
 
     font-family: 'FactorA-Medium';
     font-size: 3.3333vh;
+}
+.info_about_us {
+    .description_info {
+        h1 {
+            font-family: 'FactorA-Bold';
+            font-size: 2.60416vw;
+            font-weight: normal;
+            margin: 0%;
+        }
+
+        span {
+            font-family: 'FactorA-Regular';
+            font-size: 2.60416vw;
+            font-weight: normal;
+        }
+
+        button {
+            font-family: 'FactorA-Medium';
+            font-size: 2.60416vw;
+        }
+    }
+
+    .info_blocks {
+        h2 {
+            font-family: 'FactorA-Medium';
+            font-weight: normal;
+            font-size: 2.6041vw;
+
+            margin: 0 0 1.1979vw 0;
+        }
+
+        p {
+            font-family: 'FactorA-Regular';
+            font-size: 1.5625vw;
+            
+            margin: 0%;
+            width: 33.8020vw;
+        }
+    }
+
+    .more_info_btn {
+        font-family: 'FactorA-Medium';
+        font-size: 2.6041vw;
+    }
 }

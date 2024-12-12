@@ -1,0 +1,125 @@
+@use 'variables' as *;
+
+.info_about_us {
+    margin: 11.979vw 4.166vw 0 4.166vw;
+
+    .description_info {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        height: 9.375vw;
+        
+        button {
+            color: $warm-white;
+            background-color: $black;
+            border: none;
+            border-radius: 2.0833vw 2.0833vw 0px 2.0833vw;
+            padding: 0.4166vw 3.0208vw;
+    
+            height: 3.958vw;
+    
+            &:hover {
+                background-color: $cat-blue;
+                background-clip: 25% 75%;
+            }
+        }
+    }
+
+    .background_layer {
+        position: relative;
+
+        &::before {
+            // display: none;
+            position: absolute;
+            content: "";
+            width: 25%;
+            height: 70%;
+            background-color: $cat-blue;
+            top: 10%;
+            left: 35%;
+
+            z-index: 0;
+        }
+    }
+
+    .info_blocks {
+        margin: 5.3645vw 0 0 0;
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr)
+    }
+
+    .info_block {
+        position: relative;
+        width: 39.0625vw;
+        height: 20.625vw;
+        padding: 2.4479vw 3.3854vw;
+
+        border-radius: 2.0833vw;
+    }
+
+    #blue_block {
+        background-color: $cat-blue;
+        color: $warm-white;
+    }
+
+    #white_block {
+        background-color: $warm-white;
+        color: $main-black;
+    }
+
+    #white_btn_info {
+        background-color: $warm-white;
+
+        &:hover {
+            svg path {
+                fill: $cat-blue;
+            }
+        }
+    }
+
+    #blue_btn_info {
+        background-color: $cat-blue;
+
+        svg path {
+            fill: $warm-white;
+        }
+        
+        &:hover {
+            svg path {
+                fill: $main-black;
+            }
+        }
+    }
+
+    .info_btn {
+        position: absolute;
+        top: 0.6770vw;
+        right: 0.625vw;
+
+        border: none;
+        padding: 0.7291vw 1.1458vw 0.4166vw 1.1458vw;
+        border-radius: 2.6041vw 2.6041vw 0 2.6041vw;
+
+        svg {
+            width: 2.34375vw;
+            height: 2.34375vw;
+        }
+    }
+
+    .more_info_btn {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+
+        border: none;
+        border-radius: 2.0833vw 2.0833vw 0px 2.0833vw;
+        padding: 0.4166vw 3.0208vw;
+        background-color: $main-black;
+        color: $warm-white;
+
+        &:hover {
+            background-color: $cat-blue;
+        }
+    }
+}
