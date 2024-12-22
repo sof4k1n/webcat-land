@@ -1,7 +1,9 @@
 @use 'variables' as *;
 
 .info_about_us {
-    margin: 11.979vw 4.166vw 0 4.166vw;
+    margin: 11.979vw 0 0 0;
+    display: flex;
+    justify-content: center;
 
     .description_info {
         display: flex;
@@ -20,30 +22,37 @@
     
             &:hover {
                 background-color: $cat-blue;
-                background-clip: 25% 75%;
             }
         }
     }
+    
+    .background_hover {
+        position: absolute;
+        bottom: -5%;
+        right: -3.3%;
+        transform: rotate(45deg);
+        border-radius: 0.4vw;
+        background-color: none;
 
-    .background_layer {
-        position: relative;
+        height: 2.5vw;
+        width: 3vw;
 
-        &::before {
-            // display: none;
+        filter: url("#goo");
+
+        #block_hover_left {
             position: absolute;
-            content: "";
-            width: 25%;
-            height: 70%;
-            background-color: $cat-blue;
-            top: 10%;
-            left: 35%;
 
-            z-index: 0;
+            left: 0%;
+            top: 0%;
+            height: 2.5vw;
+            width: 3vw;
         }
+
     }
 
     .info_blocks {
         margin: 5.3645vw 0 0 0;
+        position: relative;
 
         display: grid;
         grid-template-columns: repeat(2, 1fr)

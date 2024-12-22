@@ -17,11 +17,9 @@
 .logoHead {
     display: inline-block;
     flex-shrink: 0;
-    margin: 4.9vh 0 0 4.166vw;
 
     svg {
         width: 3.02vw;
-        height: 6.738vh;
     }
 }
 
@@ -34,8 +32,6 @@
 
     #media_1 {
         width: 1.979vw;
-        height: 3.518vh;
-
 
         &:hover {
             #insta {
@@ -46,8 +42,6 @@
     }
     #media_2 {
         width: 1.979vw;
-        height: 3.24vh;
-
     
         &:hover {
             #tg {
@@ -59,16 +53,19 @@
 }
 
 .flexheader {
-    width: 100%;
     height: auto;
+    width: 91.75%;
+    justify-content: space-between;
     flex-shrink: 0;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
+
+    margin: 2.76041vw 4.16666vw 0 4.16666vw;
 }
 
 header {
-    height: 14.72vh;
+    width: 100%;
+    height: 8.28125vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -82,9 +79,8 @@ header {
 .toolbar {
     display: inline-flex;
     align-items: center;
-    height: 5.183vh;
+    height: 2.9166vw;
     gap: 6.770vw;
-    margin: 5.648vh 4.166vw 0 0;
 }
 
 .discuss_btn {
@@ -99,7 +95,6 @@ header {
     background-color: transparent;
 
     svg {
-        height: 5.185vh;
         width: 1.666vw;
     }
 
@@ -165,7 +160,6 @@ header {
 
     svg {
         width: 3.541vw;
-        height: 6.296vh;
     }
 
     div, p {
@@ -183,7 +177,7 @@ header {
 
 
 #menu.menu_opened {
-    height: 80vh;
+    height: 45vw;
     width: 100%;
     position: absolute;
     z-index: 2;
@@ -218,15 +212,14 @@ header {
     }    
 
     nav {
-        height: 45.555vh;
         display: inline-flex;
-        margin: 7.268vh 0 0 0;
+        margin: 3.6458vw 0 0 0;
         overflow: visible;
 
         ul { 
             display: flex;
             flex-direction: column;
-            gap: 4.814vh;
+            gap: 2.70833vw;
             list-style: none; 
             margin: 0%;
             padding: 0%;

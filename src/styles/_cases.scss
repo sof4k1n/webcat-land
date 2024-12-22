@@ -1,0 +1,149 @@
+@use 'variables' as *;
+
+.cases {
+    width: 100%;
+    height: 211.71875vw;
+    margin: 3.3854vw 0 0 0;
+
+    border-radius: 3.6458vw 3.6458vw 0 0;
+    background: $black;
+
+    display: flex;
+
+    .cases_head {
+        position: relative;
+        width: 91.6666vw;
+        height: 29.01vw;
+
+        border-radius: 2.0833vw;
+        
+        overflow: hidden;
+
+        h2 {
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%, -50%);
+            margin: 0%;
+            color: $warm-white;
+        }
+
+        & > img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .cases_line1 {
+        display: flex;
+    }
+
+    .cases_wrapper {
+        margin: 3.125vw 4.1666vw 0 4.1666vw ;
+    }
+
+    .case_small {
+        position: relative;
+        width: 30.677vw;
+        height: 23.9583vw;
+        overflow: hidden;
+        border-radius: 2.0833vw;
+        margin: 1.7708vw 0 0 0; 
+
+        &::after {
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%, -50%);
+            content: "Скоро";
+            color: $main-black;    
+        }
+
+        &::before {
+            position: absolute;
+            content: "";
+            background-color: $warm-white;
+            width: 99.6%;
+            height: 99.6%;
+            border-radius: 2.0833vw;
+            top:50%;
+            left:50%;
+            transform:translate(-50%, -50%);
+        }
+
+        & > img, & > video {
+            position: absolute;
+            display: block;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+    }
+
+    .corousel_block {
+        position: relative;
+        width: 59.7vw;
+        height: 49.6874vw;
+        background-color: $corousel_back;
+        margin: 1.7708vw 0 0 1.302vw;
+        border-radius: 2.0833vw;
+        overflow: hidden; /* Чтобы содержимое не выходило за границы */
+        perspective: 1000px;
+    }
+    
+    .corousel_wrapper {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Центрирование карусели */
+        perspective: 1000px; /* Добавляем перспективу для 3D-эффекта */
+    }
+    
+    .carousel {
+        position: relative;
+        width: 20vw;
+        height: 13vw;
+        transform-style: preserve-3d;
+        transform-origin: center; /* Устанавливаем центр вращения */
+        animation: rotate 60s linear infinite; /* Вращение по часовой стрелке */
+        margin: 20vw auto; /* Центрируем карусель внутри wrapper */
+    }
+      
+    .card {
+        position: absolute;
+        width: 20vw;
+        height: 13vw;
+        background: #fff;
+        border-radius: 1.041vw;
+        overflow: hidden;
+        transform: rotateY(calc(var(--i) * 60deg)) translateZ(18.75vw); /* Размещение по окружности */
+    }
+      
+    .card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    /* Анимация вращения карусели */
+    @keyframes rotate {
+        0% {
+            transform: rotateX(30deg) rotateZ(30deg) rotateY(0deg);
+        }
+        25% {
+            transform: rotateX(0deg) rotateZ(0deg) rotateY(180deg);
+        }
+        50% {
+            transform: rotateX(30deg) rotateZ(-30deg) rotateY(360deg);
+        }
+        75% {
+            transform: rotateX(0deg) rotateZ(0deg) rotateY(540deg);
+        }
+        100% {
+            transform: rotateX(30deg) rotateZ(30deg) rotateY(720deg);
+        }
+    }
+}

@@ -155,3 +155,20 @@ nav a {
         font-size: 2.6041vw;
     }
 }
+
+.cases {
+    .cases_head {
+        h2 {
+            font-family: 'JxTabeDemoRegular';
+            font-weight: normal;
+            font-size: 13.3333vw;
+        }
+    }
+
+    .case_small {
+        &::after {
+            font-family: 'FactorA-Medium';
+            font-size: 1.875vw;
+        }
+    }
+}

@@ -3,13 +3,15 @@ import * as THREE from 'three'; // Импорт библиотеки Three.js
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import modelPath from './models/hand.glb';
 
-import nx from './images/nx.jpg';
-import ny from './images/ny.jpg';
-import nz from './images/nz.jpg';
+import cases_head from './images/cases_head.png';
+import corousel1 from './images/carousel1.png';
+import corousel2 from './images/carousel2.png';
+import corousel3 from './images/carousel3.png';
+import corousel4 from './images/carousel4.png';
+import corousel5 from './images/carousel5.png';
+import corousel6 from './images/carousel6.png';
 
-import px from './images/px.jpg';
-import py from './images/py.jpg';
-import pz from './images/pz.jpg';
+import video2_2 from './video/video2_2.mp4';
 
 document.addEventListener("DOMContentLoaded", () => {
     const mediaQuery = window.matchMedia("(min-width: 1200px)");
@@ -19,13 +21,13 @@ document.addEventListener("DOMContentLoaded", () => {
         menuInner();
         application();
         logo_anim()
-        anim_hand()
+        // anim_hand()
     } else {
         initCursorEffect();
         menuInner();
         application();
         logo_anim()
-        anim_hand()
+        // anim_hand()
     }
 
     mediaQuery.addEventListener("change", (e) => {
@@ -43,91 +45,91 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    function anim_hand() {
+    // function anim_hand() {
         
-        const container = document.getElementById('anim_hand'); // Укажите ID вашего блока
+    //     const container = document.getElementById('anim_hand'); // Укажите ID вашего блока
 
-        // Устанавливаем размеры контейнера
-        const containerWidth = container.clientWidth;
-        const containerHeight = container.clientHeight;
+    //     // Устанавливаем размеры контейнера
+    //     const containerWidth = container.clientWidth;
+    //     const containerHeight = container.clientHeight;
     
-        // Создание сцены
-        const scene = new THREE.Scene();
-        scene.background = new THREE.Color(0xffffff);
+    //     // Создание сцены
+    //     const scene = new THREE.Scene();
+    //     scene.background = new THREE.Color(0xffffff);
     
-        // Создание камеры
-        const camera = new THREE.PerspectiveCamera(45, containerWidth / containerHeight, 0.1, 1000);
-        camera.position.z = 2;
-        camera.position.x = -0.3;
-        camera.position.y = 0.2;
+    //     // Создание камеры
+    //     const camera = new THREE.PerspectiveCamera(45, containerWidth / containerHeight, 0.1, 1000);
+    //     camera.position.z = 2;
+    //     camera.position.x = -0.3;
+    //     camera.position.y = 0.2;
     
-        // Создание рендера
-        const renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setSize(containerWidth, containerHeight);
-        container.appendChild(renderer.domElement); // Вставляем рендер в указанный контейнер
+    //     // Создание рендера
+    //     const renderer = new THREE.WebGLRenderer({ antialias: true });
+    //     renderer.setSize(containerWidth, containerHeight);
+    //     container.appendChild(renderer.domElement); // Вставляем рендер в указанный контейнер
     
-        // Добавляем свет
-        const ambientLight = new THREE.AmbientLight(0xffffff, 1); // Мягкий свет
-        scene.add(ambientLight);
+    //     // Добавляем свет
+    //     const ambientLight = new THREE.AmbientLight(0xffffff, 1); // Мягкий свет
+    //     scene.add(ambientLight);
     
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5); // Направленный свет
-        directionalLight.position.set(1, 1, 1).normalize();
-        scene.add(directionalLight);
+    //     const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5); // Направленный свет
+    //     directionalLight.position.set(1, 1, 1).normalize();
+    //     scene.add(directionalLight);
     
-        // Переменные для хранения 3D-модели
-        let model;
+    //     // Переменные для хранения 3D-модели
+    //     let model;
     
-        // Загрузка GLB-модели
-        const loader = new GLTFLoader();
-        loader.load(
-            (modelPath), // Укажите путь к вашей модели
-            (gltf) => {
-                model = gltf.scene; // Сохраняем сцену модели
-                scene.add(model); // Добавляем модель в сцену
-            },
-            undefined,
-            (error) => {
-                console.error('Ошибка при загрузке модели:', error);
-            }
-        );
+    //     // Загрузка GLB-модели
+    //     const loader = new GLTFLoader();
+    //     loader.load(
+    //         (modelPath), // Укажите путь к вашей модели
+    //         (gltf) => {
+    //             model = gltf.scene; // Сохраняем сцену модели
+    //             scene.add(model); // Добавляем модель в сцену
+    //         },
+    //         undefined,
+    //         (error) => {
+    //             console.error('Ошибка при загрузке модели:', error);
+    //         }
+    //     );
     
-        // Переменные для отслеживания положения мыши
-        const mouse = { x: 0, y: 0 };
+    //     // Переменные для отслеживания положения мыши
+    //     const mouse = { x: 0, y: 0 };
     
-        // Отслеживание положения мыши
-        window.addEventListener('mousemove', (event) => {
-            mouse.x = (event.clientX / containerWidth) * 2 - 1; // Нормализуем координаты
-            mouse.y = -(event.clientY / containerHeight) * 2 + 1;
-        });
+    //     // Отслеживание положения мыши
+    //     window.addEventListener('mousemove', (event) => {
+    //         mouse.x = (event.clientX / containerWidth) * 2 - 1; // Нормализуем координаты
+    //         mouse.y = -(event.clientY / containerHeight) * 2 + 1;
+    //     });
     
-        // Анимация модели
-        const animate = () => {
-            requestAnimationFrame(animate);
+    //     // Анимация модели
+    //     const animate = () => {
+    //         requestAnimationFrame(animate);
     
-            if (model) {
-                // Изменение вращения модели на основе положения мыши
-                model.rotation.y = mouse.x * Math.PI; // Вращение по оси Y
-                model.rotation.x = mouse.y * Math.PI * 0.5; // Вращение по оси X
-            }
+    //         if (model) {
+    //             // Изменение вращения модели на основе положения мыши
+    //             model.rotation.y = mouse.x * Math.PI; // Вращение по оси Y
+    //             model.rotation.x = mouse.y * Math.PI * 0.5; // Вращение по оси X
+    //         }
     
-            renderer.render(scene, camera); // Рендеринг сцены
-        };
+    //         renderer.render(scene, camera); // Рендеринг сцены
+    //     };
     
-        animate(); // Запуск анимации
+    //     animate(); // Запуск анимации
     
-        // Обновление размеров рендера при изменении размеров контейнера
-        const resizeRenderer = () => {
-            const width = container.clientWidth;
-            const height = container.clientHeight;
+    //     // Обновление размеров рендера при изменении размеров контейнера
+    //     const resizeRenderer = () => {
+    //         const width = container.clientWidth;
+    //         const height = container.clientHeight;
     
-            camera.aspect = width / height;
-            camera.updateProjectionMatrix();
-            renderer.setSize(width, height);
-        };
+    //         camera.aspect = width / height;
+    //         camera.updateProjectionMatrix();
+    //         renderer.setSize(width, height);
+    //     };
     
-        window.addEventListener('resize', resizeRenderer);
+    //     window.addEventListener('resize', resizeRenderer);
 
-    }   
+    // }   
 
     function logo_anim() {
         setTimeout(() => {
@@ -160,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const menu_btn = document.querySelector('#menu_btn');
         const menu = document.querySelector('#menu');
         const menu_wrapper = document.querySelector('#heder_wrapper');
-        const main = document.querySelector('.logo_main');
+        const main = document.querySelector('#main');
 
         const margin = menu_btn.offsetWidth;
 
@@ -171,12 +173,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 menu_btn.classList.remove('menu_btn');
                 menu_btn.classList.add('menu_exit');
                 menu_wrapper.classList.add('heder_wrapper');
-                main.classList.add('main_margin');
+                main.style.setProperty('margin-top', 'calc(8.28125vw + 2vw)');
             } else {
                 menu_btn.classList.add('menu_btn');
                 menu_btn.classList.remove('menu_exit');
                 menu_wrapper.classList.remove('heder_wrapper');
-                main.classList.remove('main_margin');
+                main.style.setProperty('margin-top', '2vw');
             }
 
             menu.classList.toggle('menu_opened')
@@ -228,4 +230,171 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
+
+    // const canvas = document.getElementById("block_hover_left");
+    // const ctx = canvas.getContext("2d");
+    // ctx.fillStyle = '#1758FF';
+
+    // class Ball {
+    //     constructor(effect, index) {
+    //         this.effect = effect;
+    //         this.radius = Math.random() * 15 + 10; // Немного уменьшил радиус
+    //         this.speedX = 0;
+    //         this.speedY = 0;
+    //         this.initFromCenter(index);
+    //     }
+
+    //     initFromCenter(index) {
+    //         // Начальная позиция в центре
+    //         this.x = this.effect.width * 0.5;
+    //         this.y = this.effect.height * 0.5;
+
+    //         // Скорость для расползания из центра
+    //         if (index % 2 === 0) {
+    //             this.speedX = (Math.random() + Math.random() * 5);
+    //         } else {
+    //             this.speedX = (-(Math.random() + Math.random() * 5));
+    //         }
+    //         this.speedY = Math.random() - 0.5;
+    //     }
+
+    //     initFromBorders(index, totalBalls) {
+    //         // Равномерное распределение по границам
+    //         const rows = Math.ceil(Math.sqrt(totalBalls));
+    //         const cols = rows;
+    //         const spacingX = this.effect.width / cols;
+    //         const spacingY = this.effect.height / rows;
+
+    //         const col = index % cols;
+    //         const row = Math.floor(index / cols);
+
+    //         // Определяем позицию шаров на границах
+    //         if (row === 0) { // Верхняя граница
+    //             this.x = col * spacingX;
+    //             this.y = 0;
+    //         } else if (row === rows - 1) { // Нижняя граница
+    //             this.x = col * spacingX;
+    //             this.y = this.effect.height;
+    //         } else if (col === 0) { // Левая граница
+    //             this.x = 0;
+    //             this.y = row * spacingY;
+    //         } else if (col === cols - 1) { // Правая граница
+    //             this.x = this.effect.width;
+    //             this.y = row * spacingY;
+    //         } else {
+    //             this.x = Math.random() * this.effect.width;
+    //             this.y = Math.random() * this.effect.height;
+    //         }
+
+    //         // Скорость к центру для плавного движения
+    //         const centerX = this.effect.width / 2;
+    //         const centerY = this.effect.height / 2;
+    //         const factor = 0.008; // Плавность движения
+    //         this.speedX = (centerX - this.x) * factor;
+    //         this.speedY = (centerY - this.y) * factor;
+    //     }
+
+    //     update() {
+    //         this.x += this.speedX;
+    //         this.y += this.speedY;
+
+    //         if (this.effect.mode === 'fromCenter') {
+    //             if (this.y < this.radius || this.y > this.effect.height - this.radius) this.speedY *= -0.3, this.speedX *= 1.15;
+    //         }
+
+    //         // Останавливаем шары вблизи центра
+    //         if (this.effect.mode === 'toCenter') {
+    //             setTimeout(() => {
+    //                 this.speedX = 0;
+    //                 this.speedY = 0;
+    //             }, 3000);
+    //         }
+    //     }
+
+    //     draw(context) {
+    //         context.beginPath();
+    //         context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    //         context.fill();
+    //     }
+    // }
+
+    // class MetaballsEffect {
+    //     constructor(width, height) {
+    //         this.width = width;
+    //         this.height = height;
+    //         this.metaballsArray = [];
+    //         this.mode = 'fromCenter';
+    //     }
+
+    //     init(numberOfBalls) {
+    //         this.metaballsArray = [];
+    //         for (let i = 0; i < numberOfBalls; i++) {
+    //             this.metaballsArray.push(new Ball(this, i));
+    //         }
+    //     }
+
+    //     update() {
+    //         this.metaballsArray.forEach(metaball => metaball.update());
+    //     }
+
+    //     draw(context) {
+    //         this.metaballsArray.forEach(metaball => metaball.draw(context));
+    //     }
+
+    //     resetFromCenter() {
+    //         this.mode = 'fromCenter';
+    //         this.init(800); // Количество для центра
+    //         this.metaballsArray.forEach((metaball, index) => metaball.initFromCenter(index));
+    //     }
+
+    //     resetFromBorders() {
+    //         this.mode = 'toCenter';
+    //         this.init(2500); // Увеличенное количество для границ
+    //         this.metaballsArray.forEach((metaball, index) => 
+    //             metaball.initFromBorders(index, this.metaballsArray.length));
+    //     }
+    // }
+
+    // // Создаем эффект
+    // const effect = new MetaballsEffect(canvas.width, canvas.height);
+    // effect.init(800);
+    // console.log(effect);
+
+    // let animationId;
+    // function animateHover() {
+    //     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    //     effect.update();
+    //     effect.draw(ctx);
+    //     animationId = requestAnimationFrame(animateHover);
+    // }
+
+    // // Привязка функций для изменения поведения
+    // function startFromCenter() {
+    //     cancelAnimationFrame(animationId);
+    //     effect.resetFromCenter();
+    //     animateHover();
+    // }
+
+    // function startFromBorders() {
+    //     cancelAnimationFrame(animationId);
+    //     effect.resetFromBorders();
+    //     animateHover();
+    // }
+
+    // startFromBorders();
+    // let hoverBlocks1 = document.querySelectorAll('.hover1'); 
+
+    // // Цикл для каждого блока
+    // hoverBlocks1.forEach(function(block) {
+    //     // Функция при наведении
+    //     block.addEventListener('mouseover', function() {
+    //         startFromCenter();
+    //     });
+
+    //     // Функция при выходе с блока
+    //     block.addEventListener('mouseout', function() {
+    //         startFromBorders();
+    //     });
+    // });
+
 });

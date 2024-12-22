@@ -212,15 +212,15 @@
                 <div id="anim_hand" class="anim_hand"></div>
             </section>
             <section class="info_about_us">
-                <div class="description_info">
-                    <h1>
-                        Digital-продакшн <span>полного цикла, с собственной<br> продуктовой аналитикой, дизайном,<br> веб и мобильной разработкой.</span>
-                    </h1>
-                    <button>О Компании</button>
-                </div>
-                <div class="background_layer">
+                <div>
+                    <div class="description_info">
+                        <h1>
+                            Digital-продакшн <span>полного цикла, с собственной<br> продуктовой аналитикой, дизайном,<br> веб и мобильной разработкой.</span>
+                        </h1>
+                        <button>О Компании</button>
+                    </div>
                     <div class="info_blocks">
-                        <div id="blue_block" class="info_block">
+                        <div id="blue_block" class="info_block hover1">
                             <button id="white_btn_info" class="info_btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 46" fill="none">
                                     <path d="M0 5C0 7.52 2.025 9.5 4.5 9.5H29.655L4.50035 34.655C2.74535 36.41 2.74535 39.245 4.50035 41C6.25535 42.755 9.09035 42.755 10.8453 41L36 15.845V41C36 43.475 38.025 45.5 40.5 45.5C42.975 45.5 45 43.475 45 41V5C45 2.525 42.975 0.5 40.5 0.5H4.5C2.025 0.5 0 2.525 0 5Z" fill="#0B0B0B"/>
@@ -241,8 +241,21 @@
                                     сотрудников.
                                 </p>
                             </div>
+                            <div class="background_hover">
+                                <canvas id="block_hover_left">
+                                    <svg>
+                                        <defs>
+                                            <filter id="goo">
+                                                <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+                                                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 15 -3"
+                                                result="goo"/>
+                                            </filter>
+                                        </defs>
+                                    </svg>
+                                </canvas>
+                            </div>
                         </div>
-                        <div id="white_block" class="info_block">
+                        <div id="white_block" class="info_block hover1">
                             <button id="blue_btn_info" class="info_btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 46" fill="none">
                                     <path d="M0 5C0 7.52 2.025 9.5 4.5 9.5H29.655L4.50035 34.655C2.74535 36.41 2.74535 39.245 4.50035 41C6.25535 42.755 9.09035 42.755 10.8453 41L36 15.845V41C36 43.475 38.025 45.5 40.5 45.5C42.975 45.5 45 43.475 45 41V5C45 2.525 42.975 0.5 40.5 0.5H4.5C2.025 0.5 0 2.525 0 5Z" fill="#0B0B0B"/>
@@ -283,7 +296,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div id="blue_block" class="info_block">
+                        <div id="blue_block" class="info_block hover1">
                             <button id="white_btn_info" class="info_btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 46" fill="none">
                                     <path d="M0 5C0 7.52 2.025 9.5 4.5 9.5H29.655L4.50035 34.655C2.74535 36.41 2.74535 39.245 4.50035 41C6.25535 42.755 9.09035 42.755 10.8453 41L36 15.845V41C36 43.475 38.025 45.5 40.5 45.5C42.975 45.5 45 43.475 45 41V5C45 2.525 42.975 0.5 40.5 0.5H4.5C2.025 0.5 0 2.525 0 5Z" fill="#0B0B0B"/>
@@ -325,6 +338,40 @@
                         </div>
                         <div id="white_block" class="info_block">
                             <button class="more_info_btn">Больше услуг</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="cases">
+                <div class="cases_wrapper">
+                    <a href="#asd">
+                        <div class="cases_head">
+                            <h2>Кейсы</h2>
+                            <img src="./assets/cases_head.png">
+                        </div>
+                    </a>
+                    <div class="cases_line1">
+                        <div>
+                            <div id="case_picture" class="case_small">
+                                <img src="pic">
+                            </div>
+                            <div id="case_video" class="case_small">
+                                <video autoplay loop muted>
+                                    <source src="video">
+                                </video>
+                            </div>
+                        </div>
+                        <div class="corousel_block">
+                            <div class="corousel_wrapper">
+                                <div class="carousel">
+                                    <div class="card" style="--i:0"><img src="./assets/carousel1.png" alt="Image 1"></div>
+                                    <div class="card" style="--i:1"><img src="./assets/carousel2.png" alt="Image 2"></div>
+                                    <div class="card" style="--i:2"><img src="./assets/carousel3.png" alt="Image 3"></div>
+                                    <div class="card" style="--i:3"><img src="./assets/carousel4.png" alt="Image 4"></div>
+                                    <div class="card" style="--i:4"><img src="./assets/carousel5.png" alt="Image 5"></div>
+                                    <div class="card" style="--i:5"><img src="./assets/carousel6.png" alt="Image 6"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
