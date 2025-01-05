@@ -13,6 +13,24 @@ import corousel6 from './images/carousel6.png';
 
 import video2_2 from './video/video2_2.mp4';
 
+import beeline from './partners/beeline.png';
+import finntrail from './partners/finntrail.png';
+import granel from './partners/granel.png';
+import ipaksu from './partners/ipaksu.png';
+import sber from './partners/sber.png';
+import skidex from './partners/skidex.png';
+import yandex from './partners/yandex.png';
+
+import worker1 from './worker_cards/worker1.png';
+import worker2 from './worker_cards/worker2.png';
+import worker3 from './worker_cards/worker3.png';
+import worker4 from './worker_cards/worker4.png';
+import worker5 from './worker_cards/worker5.png';
+import worker6 from './worker_cards/worker6.png';
+import worker7 from './worker_cards/worker7.png';
+import worker8 from './worker_cards/worker8.png';
+import worker9 from './worker_cards/worker9.png';
+
 document.addEventListener("DOMContentLoaded", () => {
     const mediaQuery = window.matchMedia("(min-width: 1200px)");
 

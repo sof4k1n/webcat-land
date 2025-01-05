@@ -165,10 +165,43 @@ nav a {
         }
     }
 
-    .case_small {
+    .case_small, 
+    .case_horizontal_video,
+    .case_vertical_video,
+    .case_large_video {
         &::after {
             font-family: 'FactorA-Medium';
             font-size: 1.875vw;
+        }
+    }
+}
+
+.workers_block {
+    h2 {
+        font-family: 'FactorA-Bold';
+        font-weight: normal;
+        font-size: 2.6041vw;
+
+        span {
+            font-family: 'FactorA-Regular';
+            font-weight: normal;
+            font-size: 2.6041vw;
+        }
+    }
+
+    .workers_corousel {
+        .worker_card {
+            h2 {
+                font-family: 'FactorA-Regular';
+                font-size: 1.875vw;
+                font-weight: normal;
+
+                span {
+                    font-family: 'FactorA-Regular';
+                    font-size: 1.0416vw;
+                    font-weight: normal;
+                }
+            }
         }
     }
 }
