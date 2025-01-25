@@ -18,31 +18,46 @@
         width: 91.6666vw;
         height: 32vw;
         margin: 2.6041vw 0 4.427vw 4.1666vw;
-        overflow-x: scroll;
         display: flex;
+        overflow: hidden;
 
-        .worker_card {
+        .run_line {
             display: flex;
-            flex-direction: column;
-            margin: 0 2.7083vw 0 0;
-            width: 22.552vw;
+            animation: run_line 80s linear infinite;
 
-            img {
-                width: 22.552vw;
-                height: 25.625vw;
-                border-radius: 2.0833vw 2.0833vw 0px 0px;
-                object-fit: contain;
-            }
-
-            h2 {
-                margin: 1.25vw 0 0 0;
-                height: auto;
+            .worker_card {
+                display: flex;
+                flex-direction: column;
+                margin: 0 2.7083vw 0 0;
                 width: 22.552vw;
 
-                span {
-                     color: $mouse-gray;
+                img {
+                    width: 22.552vw;
+                    height: 25.625vw;
+                    border-radius: 2.0833vw 2.0833vw 0px 0px;
+                    object-fit: contain;
+                }
+
+                h2 {
+                    margin: 1.25vw 0 0 0;
+                    height: auto;
+                    width: 22.552vw;
+
+                    span {
+                        color: $mouse-gray;
+                    }
                 }
             }
+        }
+    }
+
+
+    @keyframes run_line {
+        0% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(-100%);
         }
     }
 }

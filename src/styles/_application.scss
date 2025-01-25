@@ -1,8 +1,8 @@
 @use 'variables' as *;
 
-.discuss_overlay{
+.discuss_overlay {
     display: none;
-    position: absolute;
+    position: fixed;
     flex-direction: row-reverse;
     align-items: center;
 
@@ -10,6 +10,10 @@
     height: 100%;
 
     background: rgba(0, 0, 0, 0.30);
+}
+
+.discuss_overlay.active {
+    display: flex;
 }
 
 .discuss_wrapper_inside {
@@ -43,9 +47,6 @@
 .discuss_gap {
     display: flex;
     flex-direction: column;
-    // justify-content: space-between;
-
-    // height: 68.1481vh;
 
     label {
         margin: 3.0555vh 0 0 0;
@@ -60,7 +61,7 @@
 
 .discuss_opened input {
     border: 0;
-    border-bottom: 1px solid $mouse-gray;
+    border-bottom: 0.1041vw solid $mouse-gray;
     padding: 0%;
 
     height: 4.3518vh;
@@ -72,7 +73,7 @@
 
     &:focus {
         border: 0;
-        border-bottom: 2px solid $cat-blue;
+        border-bottom: 0.1041vw solid $cat-blue;
         outline: none;
         color: $black;
         &::placeholder {
@@ -148,7 +149,7 @@
         justify-content: flex-end;
 
         border: 0;
-        border-bottom: 1px solid $mouse-gray;
+        border-bottom: 0.1041vw solid $mouse-gray;
 
         margin: 0%;
     }

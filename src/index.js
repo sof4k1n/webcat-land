@@ -1,6 +1,10 @@
 import './styles/main.scss';
 import * as THREE from 'three'; // Импорт библиотеки Three.js
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
+
 import modelPath from './models/hand.glb';
 
 import cases_head from './images/cases_head.png';
@@ -31,6 +35,13 @@ import worker7 from './worker_cards/worker7.png';
 import worker8 from './worker_cards/worker8.png';
 import worker9 from './worker_cards/worker9.png';
 
+import nx from './textures/nx.jpg';
+import ny from './textures/ny.jpg';
+import nz from './textures/nz.jpg';
+import px from './textures/px.jpg';
+import py from './textures/py.jpg';
+import pz from './textures/pz.jpg';
+
 document.addEventListener("DOMContentLoaded", () => {
     const mediaQuery = window.matchMedia("(min-width: 1200px)");
 
@@ -39,13 +50,13 @@ document.addEventListener("DOMContentLoaded", () => {
         menuInner();
         application();
         logo_anim()
-        // anim_hand()
+        anim_hand()
     } else {
         initCursorEffect();
         menuInner();
         application();
         logo_anim()
-        // anim_hand()
+        anim_hand()
     }
 
     mediaQuery.addEventListener("change", (e) => {
@@ -63,97 +74,130 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // function anim_hand() {
+    function anim_hand() {
+        const container = document.getElementById('anim_hand'); // Укажите ID вашего блока
+    
+        // Устанавливаем размеры контейнера
+        const containerWidth = container.clientWidth;
+        const containerHeight = container.clientHeight;
+    
+        // Создание сцены
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color('#FDFCF9');
+    
+        // Устанавливаем карту окружения
+        const cubeTextureLoader = new THREE.CubeTextureLoader();
+        const envMap = cubeTextureLoader.load([
+            px, // Путь к положительному X
+            nx, // Путь к отрицательному X
+            py, // Путь к положительному Y
+            ny, // Путь к отрицательному Y
+            pz, // Путь к положительному Z
+            nz  // Путь к отрицательному Z
+        ]);
         
-    //     const container = document.getElementById('anim_hand'); // Укажите ID вашего блока
+        // Создание камеры
+        const camera = new THREE.PerspectiveCamera(50, containerWidth / containerHeight, 0.1, 1000);
+        camera.position.set(0, 0, 2);
+    
+        // Создание рендера
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(containerWidth, containerHeight);
+        container.appendChild(renderer.domElement); // Вставляем рендер в указанный контейнер
+    
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.9); // Направленный свет
+        directionalLight.position.set(4, -9, 4.1).normalize();
+        scene.add(directionalLight);
 
-    //     // Устанавливаем размеры контейнера
-    //     const containerWidth = container.clientWidth;
-    //     const containerHeight = container.clientHeight;
+        const hemisphereLight = new THREE.HemisphereLight(0xffffff, 0x000000, 0.2);
+        hemisphereLight.position.set(4, -9, 4.1).normalize();
+        scene.add(hemisphereLight);
     
-    //     // Создание сцены
-    //     const scene = new THREE.Scene();
-    //     scene.background = new THREE.Color(0xffffff);
+        // Переменные для хранения 3D-модели
+        let model;
     
-    //     // Создание камеры
-    //     const camera = new THREE.PerspectiveCamera(45, containerWidth / containerHeight, 0.1, 1000);
-    //     camera.position.z = 2;
-    //     camera.position.x = -0.3;
-    //     camera.position.y = 0.2;
+        // Загрузка GLB-модели
+        const loader = new GLTFLoader();
+        loader.load(
+            modelPath, // Укажите путь к вашей модели
+            (gltf) => {
+                model = gltf.scene; // Сохраняем сцену модели
     
-    //     // Создание рендера
-    //     const renderer = new THREE.WebGLRenderer({ antialias: true });
-    //     renderer.setSize(containerWidth, containerHeight);
-    //     container.appendChild(renderer.domElement); // Вставляем рендер в указанный контейнер
+                model.traverse((child) => {
+                    if (child.isMesh && child.material.isMeshStandardMaterial) {
+                        child.material.envMap = envMap; // Устанавливаем карту отражений
+                        child.material.envMapIntensity = 1.62; // Увеличиваем интенсивность
+                        child.material.needsUpdate = true; // Обновляем материал
+                    }
+                });
     
-    //     // Добавляем свет
-    //     const ambientLight = new THREE.AmbientLight(0xffffff, 1); // Мягкий свет
-    //     scene.add(ambientLight);
+                scene.add(model); // Добавляем модель в сцену
+            },
+            undefined,
+            (error) => {
+                console.error('Ошибка при загрузке модели:', error);
+            }
+        );
     
-    //     const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5); // Направленный свет
-    //     directionalLight.position.set(1, 1, 1).normalize();
-    //     scene.add(directionalLight);
-    
-    //     // Переменные для хранения 3D-модели
-    //     let model;
-    
-    //     // Загрузка GLB-модели
-    //     const loader = new GLTFLoader();
-    //     loader.load(
-    //         (modelPath), // Укажите путь к вашей модели
-    //         (gltf) => {
-    //             model = gltf.scene; // Сохраняем сцену модели
-    //             scene.add(model); // Добавляем модель в сцену
-    //         },
-    //         undefined,
-    //         (error) => {
-    //             console.error('Ошибка при загрузке модели:', error);
-    //         }
-    //     );
-    
-    //     // Переменные для отслеживания положения мыши
-    //     const mouse = { x: 0, y: 0 };
-    
-    //     // Отслеживание положения мыши
-    //     window.addEventListener('mousemove', (event) => {
-    //         mouse.x = (event.clientX / containerWidth) * 2 - 1; // Нормализуем координаты
-    //         mouse.y = -(event.clientY / containerHeight) * 2 + 1;
-    //     });
-    
-    //     // Анимация модели
-    //     const animate = () => {
-    //         requestAnimationFrame(animate);
-    
-    //         if (model) {
-    //             // Изменение вращения модели на основе положения мыши
-    //             model.rotation.y = mouse.x * Math.PI; // Вращение по оси Y
-    //             model.rotation.x = mouse.y * Math.PI * 0.5; // Вращение по оси X
-    //         }
-    
-    //         renderer.render(scene, camera); // Рендеринг сцены
-    //     };
-    
-    //     animate(); // Запуск анимации
-    
-    //     // Обновление размеров рендера при изменении размеров контейнера
-    //     const resizeRenderer = () => {
-    //         const width = container.clientWidth;
-    //         const height = container.clientHeight;
-    
-    //         camera.aspect = width / height;
-    //         camera.updateProjectionMatrix();
-    //         renderer.setSize(width, height);
-    //     };
-    
-    //     window.addEventListener('resize', resizeRenderer);
+        // Переменные для отслеживания положения мыши
+        const mouse = { x: 0, y: 0 };
 
-    // }   
+        // Ограничения углов
+        const maxRotationX = Math.PI / 4; // Предел по оси X (45 градусов)
+        const maxRotationY = Math.PI / 4; // Предел по оси Y (45 градусов)
+
+        // Отслеживание положения мыши
+        window.addEventListener('mousemove', (event) => {
+            mouse.x = (event.clientX / containerWidth) * 2 - 1; // Нормализуем координаты
+            mouse.y = -(event.clientY / containerHeight) * 2 + 1;
+        });
+
+        // Анимация модели
+        const animate = () => {
+            requestAnimationFrame(animate);
+
+            if (model) {
+                // Переводим положение мыши в углы вращения
+                const rotationX = THREE.MathUtils.clamp(mouse.y * Math.PI / 4, -maxRotationX, maxRotationX);
+                const rotationY = THREE.MathUtils.clamp(-mouse.x * Math.PI / 40, -maxRotationY, maxRotationY);
+                
+                // Применяем ограниченные углы к модели
+                model.rotation.x = rotationX; // Вращение по оси X с ограничением
+                model.rotation.y = rotationY; // Вращение по оси Y с ограничением
+            }
+
+            renderer.render(scene, camera); // Рендеринг сцены
+        };
+
+        animate(); // Запуск анимации
+    
+        // Обновление размеров рендера при изменении размеров контейнера
+        const resizeRenderer = () => {
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+    
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+            renderer.setSize(width, height);
+        };
+    
+        window.addEventListener('resize', resizeRenderer);
+    }
+    
 
     function logo_anim() {
         setTimeout(() => {
             const logo_animed = document.querySelector('#logo_for_anim');
             logo_animed.classList.add('logo_animed');
-        }, 1500); // Задержка в миллисекундах (3 секунды)
+        }, 1500); // Задержка в миллисекундах (1.5 секунды)
+
+        const elements = document.querySelectorAll(".group_for_anim g"); // находим все кнопки
+        elements.forEach((element) => { // проходимся циклом по массиву кнопок которые мы нашли
+            console.log(element)
+            element.addEventListener("click", () => { 
+                element.classList.toggle("active"); 
+            })
+        })
     }
 
     function application() {
@@ -164,14 +208,14 @@ document.addEventListener("DOMContentLoaded", () => {
         discuss_btn.addEventListener("click", () => {
             if (menu.classList.contains('menu_opened')) {
                 menu_btn.dispatchEvent(new Event('click'));
-                discuss_overlay.style.setProperty('display', 'flex');
+                discuss_overlay.classList.add('active');
             } else {
-                discuss_overlay.style.setProperty('display', 'flex');
+                discuss_overlay.classList.add('active');
             }
         });
 
         discuss_exit.addEventListener("click", () => {
-            discuss_overlay.style.setProperty('display', 'none');
+            discuss_overlay.classList.remove('active');
         });
 
     }   
@@ -180,7 +224,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const menu_btn = document.querySelector('#menu_btn');
         const menu = document.querySelector('#menu');
         const menu_wrapper = document.querySelector('#heder_wrapper');
-        const main = document.querySelector('#main');
 
         const margin = menu_btn.offsetWidth;
 
@@ -191,15 +234,37 @@ document.addEventListener("DOMContentLoaded", () => {
                 menu_btn.classList.remove('menu_btn');
                 menu_btn.classList.add('menu_exit');
                 menu_wrapper.classList.add('heder_wrapper');
-                main.style.setProperty('margin-top', 'calc(8.28125vw + 2vw)');
             } else {
                 menu_btn.classList.add('menu_btn');
                 menu_btn.classList.remove('menu_exit');
                 menu_wrapper.classList.remove('heder_wrapper');
-                main.style.setProperty('margin-top', '2vw');
             }
 
             menu.classList.toggle('menu_opened')
+        });
+
+        let lastScroll = 0;
+        const defaultOffset = 200;
+        const header = document.querySelector('header');
+
+        const scrollPosition = () => window.pageYOffset || document.documentElement.scrollTop;
+        const containHide = () => header.classList.contains('hide');
+
+        const discuss_overlay = document.querySelector('.discuss_overlay');
+
+        window.addEventListener('scroll', () => {
+
+            if(scrollPosition() > lastScroll && !containHide() && !discuss_overlay.classList.contains('active') && !menu.classList.contains('menu_opened')) {
+                header.classList.add('hide');
+                // console.log('down');
+            }
+
+            else if(scrollPosition() < lastScroll && containHide()) {
+                // console.log('up');
+                header.classList.remove('hide');
+            }
+
+            lastScroll = scrollPosition();
         });
     }
 

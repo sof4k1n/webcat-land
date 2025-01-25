@@ -12,6 +12,7 @@
         width: 100%;
         height: 211vw;
         background-color: $black;
+        border-radius: 3.6458vw 3.6458vw 0 0;
         z-index: -10;
     }
 
@@ -118,7 +119,7 @@
         transform-style: preserve-3d;
         transform-origin: center; /* Устанавливаем центр вращения */
         animation: rotate 60s linear infinite; /* Вращение по часовой стрелке */
-        margin: 20vw auto; /* Центрируем карусель внутри wrapper */
+        margin: 18.3vw auto; /* Центрируем карусель внутри wrapper */
     }
       
     .card {
@@ -140,19 +141,19 @@
     /* Анимация вращения карусели */
     @keyframes rotate {
         0% {
-            transform: rotateX(30deg) rotateZ(30deg) rotateY(0deg);
+            transform: rotateX(20deg) rotateZ(30deg) rotateY(0deg);
         }
         25% {
-            transform: rotateX(0deg) rotateZ(0deg) rotateY(180deg);
+            transform: rotateX(-15deg) rotateZ(0deg) rotateY(180deg);
         }
         50% {
-            transform: rotateX(30deg) rotateZ(-30deg) rotateY(360deg);
+            transform: rotateX(20deg) rotateZ(-30deg) rotateY(360deg);
         }
         75% {
-            transform: rotateX(0deg) rotateZ(0deg) rotateY(540deg);
+            transform: rotateX(-15deg) rotateZ(0deg) rotateY(540deg);
         }
         100% {
-            transform: rotateX(30deg) rotateZ(30deg) rotateY(720deg);
+            transform: rotateX(20deg) rotateZ(30deg) rotateY(720deg);
         }
     }
 

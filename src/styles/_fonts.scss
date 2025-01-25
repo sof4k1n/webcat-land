@@ -205,3 +205,44 @@ nav a {
         }
     }
 }
+
+.discuss_block {
+    h2 {
+        font-family: 'JxTabeDemoRegular';
+        font-size: 4.375vw;
+        font-weight: normal;
+    }
+
+    form h2 {
+        font-family: 'FactorA-Medium';
+        font-size: 2.6041vw;
+        font-weight: normal;
+    }
+
+    input, textarea {
+        font-family: 'FactorA-Regular';
+        font-size: 1.875vw;
+    }
+
+    span {
+        font-family: 'FactorA-Regular';
+        font-size: 0.8333vw;
+    }
+    span a {
+        font-family: 'FactorA-Medium';
+        font-size: 0.8333vw;
+    }
+
+    form button {
+        font-family: 'FactorA-Regular';
+        font-size: 1.875vw;
+    }
+}
+
+.footer_nav a,
+.footer_info,
+.company_info {
+    font-family: 'FactorA-Medium';
+    font-size: 1.875vw;
+    font-weight: normal;
+}
